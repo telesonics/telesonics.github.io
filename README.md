@@ -1,2 +1,2 @@
-# telesonics.github.io
-TeleSonics Website
+# TeleSonics
+TeleSonics website coming soon...
