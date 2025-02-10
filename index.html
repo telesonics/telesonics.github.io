@@ -6,38 +6,133 @@
     <meta name="description" content="">
     <title>Home</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="index.css" media="screen">
+    <link rel="stylesheet" href="index.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 7.3.1, nicepage.com">
     <meta name="referrer" content="origin">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
-    <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"logo": "images/logoAlpha.png"
-}</script>
+    <script type="application/ld+json">        {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "name": "",
+                "logo": "images/logoAlpha.png"
+            }</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Home">
     <meta property="og:type" content="website">
-  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+    <script>
+        function gdprConfirmed() {
+            return true;
+        }
+        function dynamicLoadScript() {
+            var script = document.createElement('script');
+            script.src = 'https://www.google.com/recaptcha/api.js?render=6LcTJtIqAAAAALjErljCw-xjTB9SK6O6xb9Sixyr';
+            script.async = true;
+            document.body.appendChild(script);
+            script.onload = function () {
+                let event = new CustomEvent("recaptchaLoaded");
+                document.dispatchEvent(event);
+            };
+        }
+        function showRecaptchaError(error) {
+            error = error || '';
+            var formError = document.querySelector('.u-form-send-error');
+
+            if (formError) {
+                formError.innerText = 'Site Owner Error: ' + error.replace(/:[\s\S]*/, '');
+                formError.style.display = 'block';
+            }
+
+            console.error('Error in grecaptcha: ', error);
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            var confirmButton = document.querySelector('.u-cookies-consent .u-button-confirm');
+            if (confirmButton) {
+                confirmButton.onclick = dynamicLoadScript;
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (!gdprConfirmed()) {
+                return;
+            }
+            dynamicLoadScript();
+        });
+    </script>
+    <script>
+        document.addEventListener("recaptchaLoaded", function () {
+            if (!gdprConfirmed()) {
+                return;
+            }
+
+            (function (grecaptcha, sitekey, actions) {
+                var recaptcha = {
+                    execute: function (action, submitFormCb) {
+                        if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute !== 'function') {
+                            showRecaptchaError('reCAPTCHA script failed to load.');
+                            return;
+                        }
+
+                        grecaptcha.execute(sitekey, { action: action }).then((token) => {
+                            if (!token) {
+                                throw new Error('Empty token received from reCAPTCHA');
+                            }
+
+                            var forms = document.getElementsByTagName('form');
+
+                            for (var i = 0; i < forms.length; i++) {
+                                var response = forms[i].querySelector('[name="recaptchaResponse"]');
+
+                                if (!response) {
+                                    response = document.createElement('input');
+                                    response.setAttribute('type', 'hidden');
+                                    response.setAttribute('name', 'recaptchaResponse');
+                                    forms[i].appendChild(response);
+                                }
+
+                                response.value = token;
+                            }
+
+                            submitFormCb();
+                        }).catch((e) => {
+                            showRecaptchaError(e.message);
+                        });
+                    },
+
+                    executeContact: function (submitFormCb) {
+                        recaptcha.execute(actions['contact'], submitFormCb);
+                    }
+                };
+
+                window.recaptchaObject = recaptcha;
+            })(
+                grecaptcha,
+
+                '6LcTJtIqAAAAALjErljCw-xjTB9SK6O6xb9Sixyr',
+                { 'contact': 'contact' }
+            );
+        });
+    </script>
+    <meta data-intl-tel-input-cdn-path="intlTelInput/">
+</head>
   <body data-home-page="Home.html" data-home-page-title="Home" data-path-to-root="./" data-include-products="false" class="u-body u-overlap u-overlap-contrast u-overlap-transparent u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="header"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <a href="https://www.telesonics.ca" class="u-image u-logo u-image-1" data-image-width="2480" data-image-height="1200">
           <img src="images/logoAlpha.png" class="u-logo-image u-logo-image-1">
@@ -507,45 +602,46 @@
         </h2>
         <p class="u-align-center u-text u-text-2">For questions, potential partnerships, and community, hospital, technical, industrial, research, or other collaborations, please get in touch!</p>
         <div class="u-carousel u-carousel-duration-250 u-carousel-fade u-form u-form-1" data-interval="0" data-u-ride="false" id="carousel-fa69">
-          <form method="POST" action="https://script.google.com/macros/s/AKfycbx-xa0zBeqGDZweTgm8dYiVDUFdKrS3IQpyNxkA5OcBi-lEFY1epDk0e7Z74nsQvVkjKw/exec" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form-2" style="padding: 10px;">
-            <div class="u-carousel-inner" role="listbox">
-              <div class="u-carousel-item u-form-step u-slide u-active">
-                <div class="u-form-group u-form-name">
-                  <label for="name-0194" class="u-label">Name</label>
-                  <input type="text" placeholder="Enter your Name" id="name-0194" name="name" class="u-input u-input-rectangle" required="">
+            <form method="POST" action="https://script.google.com/macros/s/AKfycbx-xa0zBeqGDZweTgm8dYiVDUFdKrS3IQpyNxkA5OcBi-lEFY1epDk0e7Z74nsQvVkjKw/exec" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form-2" style="padding: 10px;">
+                <div class="u-carousel-inner" role="listbox">
+                    <div class="u-carousel-item u-form-step u-slide u-active">
+                        <div class="u-form-group u-form-name">
+                            <label for="name-0194" class="u-label">Name</label>
+                            <input type="text" placeholder="Enter your Name" id="name-0194" name="name" class="u-input u-input-rectangle" required="">
+                        </div>
+                        <div class="u-form-email u-form-group">
+                            <label for="email-0194" class="u-label">Email</label>
+                            <input type="email" placeholder="Enter a valid email address" id="email-0194" name="email" class="u-input u-input-rectangle" required="">
+                        </div>
+                        <div class="u-form-group u-form-message">
+                            <label for="message-0194" class="u-label">Message</label>
+                            <textarea placeholder="Enter your message" rows="4" cols="50" id="message-0194" name="message" class="u-input u-input-rectangle" required=""></textarea>
+                        </div>
+                    </div>
+                    <div class="u-carousel-item u-form-step u-slide"></div>
                 </div>
-                <div class="u-form-email u-form-group">
-                  <label for="email-0194" class="u-label">Email</label>
-                  <input type="email" placeholder="Enter a valid email address" id="email-0194" name="email" class="u-input u-input-rectangle" required="">
+                <div class="u-align-left u-form-group u-form-submit">
+                    <a href="#" class="u-btn u-btn-step u-btn-step-prev u-button-style u-hidden">Back</a>
+                    <a href="#" class="u-btn u-btn-step u-btn-step-next u-button-style">Next</a>
+                    <a href="#" class="u-btn u-btn-submit u-button-style u-hidden">Submit</a>
+                    <input type="submit" value="submit" class="u-form-control-hidden">
                 </div>
-                <div class="u-form-group u-form-message">
-                  <label for="message-0194" class="u-label">Message</label>
-                  <textarea placeholder="Enter your message" rows="4" cols="50" id="message-0194" name="message" class="u-input u-input-rectangle" required=""></textarea>
-                </div>
-              </div>
-              <div class="u-carousel-item u-form-step u-slide"></div>
-            </div>
-            <div class="u-align-left u-form-group u-form-submit">
-              <a href="#" class="u-btn u-btn-step u-btn-step-prev u-button-style u-hidden">Back</a>
-              <a href="#" class="u-btn u-btn-step u-btn-step-next u-button-style">Next</a>
-              <a href="#" class="u-btn u-btn-submit u-button-style u-hidden">Submit</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
-            </div>
-            <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-            <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-            <input type="hidden" value="" name="recaptchaResponse">
-            <input type="hidden" name="formServices" value="2327ea41-2b2f-695e-6d26-ef639beb1af5">
-          </form>
+                <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                <input type="hidden" value="" name="recaptchaResponse">
+                <input type="hidden" name="formServices" value="2327ea41-2b2f-695e-6d26-ef639beb1af5">
+                <input type="hidden" name="siteKey" value="6LcTJtIqAAAAALjErljCw-xjTB9SK6O6xb9Sixyr">
+            </form>
         </div>
-      </div>
+        </div>
     </section>
-    
-    
-    
+
+
+
     <footer class="u-align-center u-clearfix u-container-align-center u-footer u-grey-80 u-footer" id="footer"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">
-          <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="Contact.html" data-page-id="40925493" title="Contact">Contact us for inquiries</a>
+            <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="Contact.html" data-page-id="40925493" title="Contact">Contact us for inquiries</a>
         </p>
-      </div></footer>
-  
+        </div></footer>
+
 </body></html>
