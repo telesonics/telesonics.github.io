@@ -1,7 +1,7 @@
  .u-section-1 {
   background-position: 50% 50%;
   background-repeat: no-repeat, no-repeat;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/haidagwaii1.jpg');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/cover.jpg');
   background-size: cover, cover;
 }
 
